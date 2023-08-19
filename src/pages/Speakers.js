@@ -1,18 +1,25 @@
 import React from 'react'
-import withData from '../Components/withData'
-
-function Speakers({speakers}) {
+import SpeakersRenderProps from '../Components/SpeakerRenderProps'
+function Speakers() {
 
   return (
-    <div>
-        {speakers.map(({imageSrc, name})=>{
-            return <img src={imageSrc} alt={name} key={name}/>
-        })}
-    </div>
+    <SpeakersRenderProps>
+      {({speakers})=>(
+        <div>
+          {
+            speakers.map(({imageSrc, name})=>{
+              return (
+                <img src={imageSrc} alt={name} key={name} />
+              )
+            })
+          }
+        </div>
+      )
+
+      }
+    </SpeakersRenderProps>
+
   )
 }
 
-// HOC
-<withData/>
-
-export default withData(2)(Speakers)
+export default Speakers
