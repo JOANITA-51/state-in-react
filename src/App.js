@@ -7,6 +7,7 @@
 import Child from "./Child"
 import { useState } from "react"
 import Speakers from "./pages/Speakers"
+import { AuthProvider } from "./Context/AuthContext"
 
 // //a42ee272
 
@@ -71,11 +72,14 @@ const App = () =>{
     // )
     const [dataFromChild, setDataFromChild] = useState("")
     return(
-        <div>
-            {/* <p>Child data: {dataFromChild}</p>
-            <Child childData={setDataFromChild}/> */}
-            <Speakers/>
-        </div>
+        <AuthProvider initialLoggedInUser="Anita">
+            <div>
+                {/* <p>Child data: {dataFromChild}</p>
+                <Child childData={setDataFromChild}/> */}
+                <Speakers/>
+            </div>
+        </AuthProvider>
+
     )
 }
 
